@@ -20,16 +20,4 @@ website : dewakoding.com
 abstract class AppDatabase: RoomDatabase() {
     abstract fun noteDao(): NoteDao
 
-    companion object {
-        private var instance: AppDatabase? = null
-
-        fun getInstance(context: Context): AppDatabase {
-            if (instance == null) {
-                instance = Room.databaseBuilder(context, AppDatabase::class.java, "note_database")
-                    .fallbackToDestructiveMigration()
-                    .build()
-            }
-            return instance!!
-        }
-    }
 }

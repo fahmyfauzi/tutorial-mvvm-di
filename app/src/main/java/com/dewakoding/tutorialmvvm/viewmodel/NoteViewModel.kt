@@ -5,11 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dewakoding.tutorialmvvm.data.model.Note
 import com.dewakoding.tutorialmvvm.repository.NoteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
 
 //viewmodel hanya tempat untuk mengambil data, datanya dari repository
-class NoteViewModel(val noteRepository: NoteRepository):ViewModel() {
+class NoteViewModel @Inject constructor(val noteRepository: NoteRepository):ViewModel() {
 
     fun getAll(): LiveData<List<Note>> = noteRepository.getAll()
 
