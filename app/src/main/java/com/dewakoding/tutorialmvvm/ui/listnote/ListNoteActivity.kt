@@ -36,6 +36,11 @@ class ListNoteActivity : AppCompatActivity() {
 
         adapter=ListNoteAdapter(applicationContext,object:OnNoteClickListener{
             override fun onDelete(note: Note) {
+                //delete
+                noteViewModel.delete(note)
+            }
+
+            override fun onEdit(note: Note) {
 
             }
         })
